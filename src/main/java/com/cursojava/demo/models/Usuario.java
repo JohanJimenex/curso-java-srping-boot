@@ -1,10 +1,13 @@
 package com.cursojava.demo.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,20 +47,13 @@ public class Usuario {
 
     @Getter
     @Setter
-    @Column(name = "evento_id")
-    private Long evento_id;
-
-    @Getter
-    @Setter
     @Column(name = "role")
     private String role;
 
-    // public List<Evento> getEventos() {
-    // return eventos;
-    // }
-
-    // public void setEventos(List<Evento> eventos) {
-    // this.eventos = eventos;
-    // }
+    @Getter
+    @Setter
+    @Column(name = "evento_id")
+    @OneToMany(mappedBy = "id")
+    private List<Evento> evento_id;
 
 }
