@@ -2,6 +2,7 @@ package com.cursojava.demo.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 import com.cursojava.demo.dao.UsuarioDao;
+import com.cursojava.demo.models.JwtResponse;
 import com.cursojava.demo.models.Usuario;
 import com.cursojava.demo.utils.JWTUtil;
 
@@ -33,7 +34,9 @@ public class AuthController {
 
         String jwtoken = jwtUtil.createToken(usuario.getCorreo(), usuario.getRole());
 
-        return jwtoken;
+        JwtResponse jwtResponse = new JwtResponse(jwtoken);
+
+        return jwtResponse;
     }
 
 }
