@@ -29,7 +29,7 @@ public class AuthController {
         Object DBResponse = usuarioDao.verificarCredenciales(usuario);
 
         if (!DBResponse.equals(true)) {
-            return DBResponse; // viene un mensaje de credenciales incorrectas
+            return DBResponse; // viene un mensaje de credenciales incorrecta
         }
 
         String jwtoken = jwtUtil.createToken(usuario.getCorreo(), usuario.getRole());
